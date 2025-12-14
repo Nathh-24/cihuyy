@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Selamat Natal!</title>
+<link rel="stylesheet" href="style.css">
+<style>
+  body {
+    margin: 0;
+    height: 100vh;
+    background: #1e2a38;
+    color: #fff;
+    font-family: Arial;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+  .snowflake {
+    position: fixed;
+    top: -10px;
+    color: white;
+    font-size: 1em;
+    pointer-events: none;
+    animation: fall linear infinite;
+  }
+  @keyframes fall {
+    to { transform: translateY(110vh); opacity: 0.3; }
+  }
+</style>
+</head>
+<body>
+<img src="gambar.png" width="250">
+<h1 class="title">Selamat Natal!!</h1>
+<h2 class="fade">Siapa Namamu:</h2>
+<div id="formNama">
+  <input id="namaInput" placeholder="Ketik nama...">
+  <button onclick="tampilkanNama()">Tampilkan</button>
+</div>
+<h2 id="hasil" class="fade"></h2>
+<script>
+  // salju
+  for (let i = 0; i < 40; i++) {
+    let s = document.createElement("div");
+    s.className = "snowflake";
+    s.textContent = "❄";
+    s.style.left = Math.random() * 100 + "vw";
+    s.style.animationDuration = 5 + Math.random()*10 + "s";
+    s.style.fontSize = 10 + Math.random()*20 + "px";
+    document.body.appendChild(s);
+  }
+// tampilkan nama
+  function tampilkanNama() {
+    let nama = document.getElementById("namaInput").value;
+    document.getElementById("hasil").textContent = "Selamat Natal, " + nama + "!";
+    document.getElementById("formNama").style.display = "none";
+  }
+  function tampilkanNama() {
+  let nama = document.getElementById("namaInput").value;
+  let hasil = document.getElementById("hasil");
+
+    if (nama.trim().toLowerCase() === "laura") {
+    hasil.textContent = "Selamat Natal, Laura!❤️😾";
+  } else if (nama.trim().toLowerCase() === "david"){
+    hasil.textContent = "Selamat Natal, David!🎸";
+  } else if (nama.trim().toLowerCase() === "veri"){
+    hasil.textContent = "Selamat Natal, Mah Veri!🪡🧶🪭";
+  } else if (nama.trim().toLowerCase() === "patria"){
+    hasil.textContent = "Selamat Natal, Pah Patria!🎹🎸🏀🥁📯";
+  } else if (nama.trim().toLowerCase() === "michael"){
+    hasil.textContent = "Selamat Natal, Mica Maicung!🥁🍗🤣";
+  } else if (nama.trim().toLowerCase() === "vinda"){
+    hasil.textContent = "Selamat Natal, Ce Vinda!🐈‍⬛🐈✨";
+  } else if (nama.trim().toLowerCase() === "yopi"){
+    hasil.textContent = "Selamat Natal, Ku Yopi!🏀🍗🔥";
+  } else if (nama.trim().toLowerCase() === "martha"){
+    hasil.textContent = "Selamat Natal, Oma!🎶";
+  } else if (nama.trim().toLowerCase() === "ever"){
+    hasil.textContent = "Selamat Natal, Om Ever!🪙📈";
+  } else if (nama.trim().toLowerCase() === "hans"){
+    hasil.textContent = "Selamat Natal, Hansul!🎹✨🤣";
+  } else {
+     hasil.textContent = "Selamat Natal, "+ nama + "!";
+  }
+  // reset animasi agar muncul halus
+  hasil.style.animation = "none";
+  void hasil.offsetWidth;
+  hasil.style.animation = "fadeInUp 1s ease forwards";
+ // sembunyikan form
+  document.getElementById("formNama").style.display = "none";
+}
+</script>
+</body>
+</html>
